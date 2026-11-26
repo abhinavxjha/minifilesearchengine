@@ -1,0 +1,10 @@
+Operating Systems Concepts
+
+An operating system is system software that manages computer hardware, software resources, and provides common services for computer programs. The operating system acts as an intermediary between users and the computer hardware. Popular operating systems include Windows, Linux, and macOS.
+
+Process management is a fundamental function of operating systems. A process is an instance of a running program. The operating system handles process creation, scheduling, synchronization, and termination. CPU scheduling algorithms determine the order in which processes are executed, ensuring fair resource allocation.
+
+Memory management involves allocating and deallocating memory space as needed by programs. Virtual memory allows the operating system to use disk space as an extension of physical memory. Paging and segmentation are techniques used to manage virtual memory efficiently and prevent memory fragmentation.
+
+File systems organize and store data on storage devices. The operating system provides a file system that allows users and applications to create, read, write, and delete files. Common file systems include NTFS, ext4, and APFS. The file system manages directory structures, file permissions, and storage allocation.
+

@@ -1,0 +1,10 @@
+Object-Oriented Programming
+
+Object-oriented programming is a programming paradigm based on the concept of objects. Objects contain data in the form of fields and code in the form of methods. The four main principles of object-oriented programming are encapsulation, inheritance, polymorphism, and abstraction.
+
+Encapsulation bundles data and the methods that operate on that data within a single unit called a class. It restricts direct access to some of the object's components, which is a means of preventing accidental interference. Access modifiers like public, private, and protected control the visibility of class members.
+
+Inheritance allows a new class to be based on an existing class. The new class inherits the properties and methods of the parent class and can add new features or override existing ones. Inheritance promotes code reuse and establishes a natural hierarchy between classes. Multiple inheritance, where a class inherits from more than one parent, is supported in some languages like C++.
+
+Polymorphism allows objects of different types to be treated as objects of a common base type. Method overriding enables a subclass to provide a specific implementation of a method already defined in its parent class. Polymorphism makes code more flexible and extensible, allowing programs to process objects differently depending on their actual type.
+

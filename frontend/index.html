@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Search Engine | C++17 DSA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-layout">
+        <!-- ── Simple Minimal Navigation Bar ─────────────────────────── -->
+        <header class="app-header">
+            <nav class="nav-tabs-wrapper" aria-label="Primary Navigation">
+                <button class="nav-tab active" data-tab="search-view" id="tab-search">
+                    <svg class="tab-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <span>Search</span>
+                </button>
+                <button class="nav-tab" data-tab="documents-view" id="tab-documents">
+                    <svg class="tab-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <span>Documents</span>
+                </button>
+            </nav>
+        </header>
+
+        <!-- ── Main Content Area ───────────────────────────────────────── -->
+        <main class="app-main">
+
+            <!-- ══════════════════════════════════════════════════════════ -->
+            <!-- TAB 1: SEARCH VIEW                                         -->
+            <!-- ══════════════════════════════════════════════════════════ -->
+            <section id="search-view" class="tab-content active">
+                <div class="search-hero">
+                    <h1 class="hero-title">What are you looking for?</h1>
+                    <p class="hero-subtitle">Inverted index search powered by C++</p>
+
+                    <!-- Minimal Search Bar Container -->
+                    <div class="search-box-container">
+                        <div class="search-bar">
+                            <span class="search-icon-wrapper">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                </svg>
+                            </span>
+                            <input type="text" id="search-input" 
+                                   placeholder="Search algorithms, data structures, machine learning..." 
+                                   autocomplete="off" spellcheck="false">
+                            <button id="clear-btn" class="clear-btn hidden" title="Clear input" aria-label="Clear search">✕</button>
+                            <button id="search-btn" class="search-btn">
+                                <span>Search</span>
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <!-- Autocomplete Dropdown (Trie prefix match) -->
+                        <div id="autocomplete-dropdown" class="autocomplete-dropdown hidden"></div>
+                    </div>
+
+                    <!-- Quick Suggestions ("Try: ...") -->
+                    <div class="quick-queries">
+                        <span class="quick-label">Try:</span>
+                        <button class="quick-chip" data-query="data structures">data structures</button>
+                        <button class="quick-chip" data-query="machine learning algorithms">machine learning algorithms</button>
+                        <button class="quick-chip" data-query="web network security">web network security</button>
+                        <button class="quick-chip" data-query="programming">programming</button>
+                        <button class="quick-chip" data-query="database">database</button>
+                    </div>
+                </div>
+
+                <!-- Search Meta Strip -->
+                <div id="search-meta" class="search-meta hidden">
+                    <div class="meta-left">
+                        <span id="results-count" class="meta-highlight">0</span> results found for 
+                        <span id="results-query" class="meta-query">""</span>
+                    </div>
+                    <div class="meta-right">
+                        <span class="meta-badge">Latency: <span id="search-latency">0.0</span> ms</span>
+                        <span class="meta-badge">Ranking: MergeSort</span>
+                    </div>
+                </div>
+
+                <!-- Search Results Container -->
+                <div id="results-container" class="results-container"></div>
+            </section>
+
+            <!-- ══════════════════════════════════════════════════════════ -->
+            <!-- TAB 2: DOCUMENTS VIEW                                      -->
+            <!-- ══════════════════════════════════════════════════════════ -->
+            <section id="documents-view" class="tab-content">
+                <div class="documents-header">
+                    <h2>Corpus Documents</h2>
+                    <p>Text files loaded, tokenized, and indexed into the C++ engine</p>
+                </div>
+
+                <div id="documents-list-container" class="documents-grid"></div>
+            </section>
+        </main>
+
+        <!-- ── Minimal Footer ──────────────────────────────────────────── -->
+        <footer class="app-footer">
+            <div class="footer-container">
+                <span class="footer-left">Mini Search Engine &bull; Academic DSA Project</span>
+                <span class="footer-right">C++17 Core Engine &bull; Vanilla HTML/CSS/JS</span>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

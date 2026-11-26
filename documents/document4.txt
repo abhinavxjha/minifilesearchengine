@@ -1,0 +1,10 @@
+Database Management Systems
+
+A database is an organized collection of structured information stored electronically. Database management systems provide mechanisms for storing, retrieving, updating, and managing data. Popular database systems include MySQL, PostgreSQL, MongoDB, and Oracle.
+
+Relational databases store data in tables with rows and columns. Each table represents an entity, and relationships between tables are established using keys. Structured Query Language or SQL is the standard language for managing relational databases. SQL allows users to create, read, update, and delete data efficiently.
+
+NoSQL databases provide flexible schemas and are designed for specific data models. Document databases like MongoDB store data in JSON-like documents. Key-value stores, column-family databases, and graph databases are other types of NoSQL databases. These databases are often used in applications that require high scalability and performance.
+
+Database indexing is a technique used to speed up data retrieval operations. An index creates a data structure that allows the database to find rows quickly without scanning every row in a table. Hash indexes and B-tree indexes are common indexing methods used in modern database systems.
+

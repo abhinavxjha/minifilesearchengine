@@ -1,0 +1,10 @@
+Web Development Fundamentals
+
+Web development is the process of building and maintaining websites. It encompasses web design, web content development, client-side scripting, server-side scripting, and network security configuration. Web development ranges from creating simple static pages to complex web applications.
+
+The frontend of a website is built using HTML, CSS, and JavaScript. HTML provides the structure, CSS handles the styling and layout, and JavaScript adds interactivity and dynamic behavior. Modern web development also involves responsive design to ensure websites work across different devices and screen sizes.
+
+Backend development involves server-side programming using languages such as Python, Java, C++, PHP, or JavaScript with Node. Backend developers work with databases, server logic, and application programming interfaces. The backend processes requests from the frontend and returns appropriate responses.
+
+Full-stack developers understand both frontend and backend development. They can build complete web applications from scratch, handling everything from the user interface to the database and server configuration. Full-stack development requires knowledge of multiple programming languages and frameworks.
+

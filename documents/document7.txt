@@ -1,0 +1,10 @@
+Computer Networks and Security
+
+A computer network is a collection of interconnected devices that share resources and communicate with each other. Networks can be classified by their size as local area networks, wide area networks, and metropolitan area networks. The internet is the largest global network connecting billions of devices worldwide.
+
+Network protocols define rules for communication between devices. The TCP/IP protocol suite is the foundation of internet communication. HTTP is used for web browsing, FTP for file transfer, SMTP for email, and DNS for domain name resolution. Understanding these protocols is essential for network engineers and web developers.
+
+Network security protects computer networks from unauthorized access, misuse, and attacks. Firewalls filter incoming and outgoing network traffic based on security rules. Encryption algorithms protect data during transmission, ensuring confidentiality and integrity. Common security threats include malware, phishing, denial-of-service attacks, and man-in-the-middle attacks.
+
+Cybersecurity professionals use various tools and techniques to protect systems and data. Intrusion detection systems monitor network traffic for suspicious activity. Penetration testing identifies vulnerabilities before attackers can exploit them. Security best practices include strong passwords, regular updates, and employee security training.
+

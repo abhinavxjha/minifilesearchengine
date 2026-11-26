@@ -1,0 +1,10 @@
+Search Engines and Information Retrieval
+
+A search engine is a software system designed to carry out web searches. It searches a database of information according to the user's query and returns a list of results ranked by relevance. Modern search engines use complex algorithms to index billions of web pages and deliver results in milliseconds.
+
+Information retrieval is the science of searching for information within documents and databases. The core component of a search engine is the inverted index, which maps every word to the list of documents containing it. Building an efficient inverted index requires careful data structure selection, often using hash tables for fast word lookup.
+
+Relevance ranking determines the order of search results. Term frequency measures how often a word appears in a document. Inverse document frequency measures how important a word is across the entire collection. The TF-IDF score combines these two measures to rank documents by relevance. More advanced algorithms consider factors like page authority and link structure.
+
+Autocomplete is a feature that predicts the rest of a word or phrase as the user types. It is typically implemented using a trie data structure, also known as a prefix tree. The trie allows efficient prefix matching and can suggest completions in time proportional to the length of the input prefix. This provides a fast and responsive user experience in search applications.
+
