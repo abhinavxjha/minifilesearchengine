@@ -1,16 +1,4 @@
-/*
- * HttpServer.h — Lightweight embedded HTTP Server for the Mini Search Engine.
- *
- * Responsibilities:
- *   1. Listens for incoming HTTP/1.1 connections on port 8080.
- *   2. Serves frontend assets (index.html, style.css, script.js).
- *   3. Exposes REST JSON APIs that invoke SearchEngine DSA methods:
- *      - GET /api/search?q=...
- *      - GET /api/autocomplete?prefix=...
- *      - GET /api/documents
- *   4. Parses query parameters with URL decoding.
- *   5. Returns standard HTTP responses with CORS headers.
- */
+// HttpServer.h — Embedded HTTP/1.1 server for search API and static files.
 
 #ifndef HTTPSERVER_H
 #define HTTPSERVER_H

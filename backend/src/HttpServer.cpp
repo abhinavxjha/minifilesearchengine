@@ -1,6 +1,4 @@
-/*
- * HttpServer.cpp — Implementation of the lightweight C++ HTTP server.
- */
+// HttpServer.cpp — Lightweight HTTP/1.1 server for search API and static UI.
 
 #include <winsock2.h>
 #include <ws2tcpip.h>
@@ -11,10 +9,6 @@
 #include <chrono>
 
 using namespace std;
-
-// ════════════════════════════════════════════════════════════════
-// Constructor & Destructor
-// ════════════════════════════════════════════════════════════════
 
 HttpServer::HttpServer(SearchEngine& engine, int port) : engine_(engine) {
     port_ = port;
@@ -31,10 +25,6 @@ HttpServer::~HttpServer() {
     stop();
     WSACleanup();
 }
-
-// ════════════════════════════════════════════════════════════════
-// Server Lifecycle
-// ════════════════════════════════════════════════════════════════
 
 void HttpServer::start() {
     SOCKET s = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -95,10 +85,6 @@ void HttpServer::stop() {
     }
 }
 
-// ════════════════════════════════════════════════════════════════
-// Client Request Handling
-// ════════════════════════════════════════════════════════════════
-
 void HttpServer::handleClient(uintptr_t clientSockPtr) {
     SOCKET client = static_cast<SOCKET>(clientSockPtr);
 
@@ -154,7 +140,6 @@ string HttpServer::routeRequest(const string& method,
         return buildResponse(405, "application/json", "{\"error\":\"Method Not Allowed\"}");
     }
 
-    // Static Frontend Files
     if (path == "/" || path == "/index.html") {
         return handleStaticFile("frontend/index.html", "text/html; charset=UTF-8");
     }
@@ -165,7 +150,6 @@ string HttpServer::routeRequest(const string& method,
         return handleStaticFile("frontend/script.js", "application/javascript; charset=UTF-8");
     }
 
-    // REST API Endpoints
     if (path == "/api/search") {
         string q = params.count("q") ? params.at("q") : "";
         return handleSearch(q);
@@ -180,10 +164,6 @@ string HttpServer::routeRequest(const string& method,
 
     return buildResponse(404, "application/json", "{\"error\":\"Endpoint Not Found\"}");
 }
-
-// ════════════════════════════════════════════════════════════════
-// Endpoint Handlers
-// ════════════════════════════════════════════════════════════════
 
 string HttpServer::handleSearch(const string& query) {
     if (query.empty()) {
@@ -291,10 +271,6 @@ string HttpServer::buildResponse(int statusCode,
 
     return ss.str();
 }
-
-// ════════════════════════════════════════════════════════════════
-// URL & JSON Utilities
-// ════════════════════════════════════════════════════════════════
 
 string HttpServer::urlDecode(const string& in) {
     string out;

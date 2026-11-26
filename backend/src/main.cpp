@@ -1,6 +1,4 @@
-/*
- * main.cpp — Entry point for the Mini Search Engine.
- */
+// main.cpp — Entry point for the Mini Search Engine server and CLI verification.
 
 #include <iostream>
 #include <filesystem>
@@ -25,13 +23,11 @@ void runAutomatedEndpointVerification(SearchEngine& engine) {
     cout << "  VERIFYING API ENDPOINT SERIALIZATIONS\n";
     cout << "──────────────────────────────────────────\n";
 
-    // 1. Test Autocomplete API
     cout << "  [1] Autocomplete prefix 'pro':\n";
     auto autocomp = engine.autocomplete("pro", 5);
     cout << "      Count: " << autocomp.size() << " | First: " 
               << (autocomp.empty() ? "none" : autocomp[0]) << "\n";
 
-    // 2. Test Search API
     cout << "  [2] Search 'machine learning':\n";
     auto results = engine.search("machine learning");
     cout << "      Found: " << results.size() << " results\n";
@@ -49,7 +45,6 @@ int main(int argc, char* argv[]) {
     cout << "           C++ DSA Engine\n";
     cout << "==========================================\n\n";
 
-    // ── Step 1: Initialize Engine and Index Directory ─────────
     string docsPath = "documents";
     if (!fs::exists(docsPath)) {
         cerr << "[ERROR] 'documents/' directory not found.\n";
@@ -61,7 +56,6 @@ int main(int argc, char* argv[]) {
     int indexedCount = engine.indexDirectory(docsPath);
     cout << "[INFO] Successfully indexed " << indexedCount << " documents.\n\n";
 
-    // Check if test mode requested
     bool testOnly = (argc > 1 && (strcmp(argv[1], "--test") == 0));
 
     if (testOnly) {
@@ -72,7 +66,6 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
-    // ── Step 2: Launch HTTP Server ────────────────────────────
     int port = 8080;
     HttpServer server(engine, port);
     server.start();

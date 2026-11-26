@@ -1,6 +1,4 @@
-/*
- * Queue.cpp — Implementation of Custom Linked List Queue.
- */
+// Queue.cpp — Linked-list FIFO queue for indexing tasks.
 
 #include "Queue.h"
 #include <iostream>

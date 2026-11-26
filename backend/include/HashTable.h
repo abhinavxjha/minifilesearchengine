@@ -1,15 +1,4 @@
-/*
- * HashTable.h — Custom hash table with separate chaining.
- *
- * Hash function: djb2 (Daniel J. Bernstein)
- *   hash = 5381
- *   for each char c: hash = hash * 33 + c
- *   return hash % capacity
- *
- * Complexity (average case with good hash function):
- *   - Insert: O(1)
- *   - Search: O(1)
- */
+// HashTable.h — Separate-chaining hash table using djb2.
 
 #ifndef HASHTABLE_H
 #define HASHTABLE_H
@@ -27,8 +16,8 @@ public:
     Node* search(const string& key) const;
 
 private:
-    LinkedList* buckets_;      // Array of linked list chains
-    int capacity_;             // Number of buckets
+    LinkedList* buckets_;
+    int capacity_;
     int hashFunction(const string& key) const;
 };
 

@@ -1,6 +1,4 @@
-/*
- * InvertedIndex.cpp — Implementation of InvertedIndex class.
- */
+// InvertedIndex.cpp — Stores documents and indexes terms in HashTable.
 
 #include "InvertedIndex.h"
 

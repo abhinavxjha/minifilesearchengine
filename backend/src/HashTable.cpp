@@ -1,6 +1,4 @@
-/*
- * HashTable.cpp — Implementation of the custom hash table.
- */
+// HashTable.cpp — Hash table with djb2 hashing and separate chaining.
 
 #include "HashTable.h"
 
@@ -15,12 +13,7 @@ HashTable::~HashTable() {
     delete[] buckets_;
 }
 
-/*
- * hashFunction — djb2 by Daniel J. Bernstein.
- *
- * Time:  O(k) where k = key length
- * Space: O(1)
- */
+// djb2 hash
 int HashTable::hashFunction(const string& key) const {
     unsigned long hash = 5381;
     for (char c : key) {

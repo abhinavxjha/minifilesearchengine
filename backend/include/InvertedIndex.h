@@ -1,10 +1,4 @@
-/*
- * InvertedIndex.h — Maps words to the documents containing them.
- *
- * Complexity:
- *   - Add Document:  O(W) where W is the number of words in the document
- *   - Term Lookup:   O(1) average time via custom HashTable
- */
+// InvertedIndex.h — Maps terms to document posting lists via HashTable.
 
 #ifndef INVERTEDINDEX_H
 #define INVERTEDINDEX_H
@@ -29,8 +23,8 @@ public:
     int getTotalDocuments() const;
 
 private:
-    HashTable table_;             // Custom Hash Table storing postings
-    vector<Document> documents_;  // Registry of indexed documents
+    HashTable table_;
+    vector<Document> documents_;
 };
 
 #endif // INVERTEDINDEX_H

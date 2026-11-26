@@ -1,14 +1,8 @@
-/*
- * Trie.cpp — Implementation of the custom Trie data structure.
- */
+// Trie.cpp — ASCII prefix tree implementation for autocomplete.
 
 #include "Trie.h"
 
 using namespace std;
-
-// ════════════════════════════════════════════════════════════════
-// TrieNode Implementation
-// ════════════════════════════════════════════════════════════════
 
 TrieNode::TrieNode() {
     isEndOfWord = false;
@@ -25,10 +19,6 @@ TrieNode::~TrieNode() {
         }
     }
 }
-
-// ════════════════════════════════════════════════════════════════
-// Trie Implementation
-// ════════════════════════════════════════════════════════════════
 
 Trie::Trie() {
     root_ = new TrieNode();
@@ -67,7 +57,7 @@ vector<string> Trie::getSuggestions(const string& prefix, int limit) const {
         if (index >= TrieNode::ALPHABET_SIZE) return suggestions;
 
         if (current->children[index] == nullptr) {
-            return suggestions; // Prefix does not exist
+            return suggestions;
         }
         current = current->children[index];
     }
@@ -106,7 +96,7 @@ void Trie::collectSuggestions(TrieNode* current,
             }
 
             collectSuggestions(current->children[i], currentWord, suggestions, limit);
-            currentWord.pop_back(); // Backtrack
+            currentWord.pop_back();
         }
     }
 }
